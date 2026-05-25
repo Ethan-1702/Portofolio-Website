@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Clash Royale Portfolio</title>
+
+<style>
+
+/* =========================================
+   ⚔️ CLASH ROYALE COLORS
+========================================= */
+:root{
+    --primary:#ffd54a; /*Yellow*/
+    --primary-dark:#c79b00;
+    --green:#4ade80;
+    --green-dark:#16a34a;
+    --blue:#2aa9ff;
+    --blue-dark:#0066cc;
+    --bg:#0f172a;
+    --bg-card:#1e293b;
+    --text:#ffffff;
+    --text-muted:#d1d5db;
+    --border:#334155;
+    --radius:20px;
+    --shadow:0 8px 0 #00000055;
+}
+
+/* =========================================
+   🌍 BASE
+========================================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:
+    linear-gradient(
+        to bottom,
+        #1e3a8a,
+        #0f172a
+    );
+    color:var(--text);
+    overflow-x:hidden;
+     /*Hides anything that goes outside of the screen horizontally*/
+}
+
+/* =========================================
+   ✨ GRID BACKGROUND
+========================================= */
+body::before{
+    content:"";
+    position:fixed;
+     /*The lines in the background don't move when scrolling.*/
+    inset:0;
+    /*Stretches the lines so it covers the whole screen.*/
+    background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    /*The line is white, 1px thick, and transparent*/
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    /*The line is white, 1px thick, and transparent but rotated by 90 degrees*/
+    background-size:40px 40px;
+    /*The space between lines*/
+    z-index:0;
+    /*So the other contents appear on the top of the background*/
+}
+
+/* =========================================
+   🧭 NAVBAR
+========================================= */
+nav{
+    background:#111827;
+    border-bottom:4px solid var(--primary);
+    padding:1rem 2rem;
+    position:sticky;
+    /*Makes the navigation board stay when scrolling*/
+    top:0;
+    /*Makes the navigation board on the top of the screen*/
+    z-index:100;
+    /*So it appears on the top of all other contents*/
+}
+
+.nav-inner{
+    max-width:1100px;
+    margin:auto;
+    /*So it stays in the middle*/
+    display:flex;
+    /*Items can be side-by-side neatly*/
+    justify-content:space-between;
+    /*Push items as far apart as possible*/
+    align-items:center;
+    position:relative;
+    /*"Makes the object stay at it's normal position, but can be now moved, such as z-index*/
+}
+
+.logo{
+    color:var(--primary);
+    text-decoration:none;
+    font-size:1.8rem;
+    font-weight:bold;
+    text-shadow:0 3px #8a6b00;
+}
+
+.nav-links{
+    display:flex;
+    /*Items can be side-by-side neatly*/
+    gap:1.5rem;
+    list-style:none;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.2s;
+     /*Adds timing to the transition so that the animation is smooth between style changes.*/
+}
+
+.nav-links a:hover{
+    color:var(--primary);
+/*Makes every link turn gold when the mouse is hovering over it*/
+}
+
+/* =========================================
+   ☰ MOBILE MENU
+========================================= */
+.menu-toggle{
+    display:none;
+
+    background:none;
+    border:none;
+    color:white;
+    font-size:2rem;
+    cursor:pointer;
+}
+
+/* =========================================
+   🦸 HERO
+========================================= */
+.hero{
+    max-width:1100px;
+    margin:auto;
+    /*So it stays in the middle*/
+    min-height:90vh;
+    /*viewport height= The height of the screen/window*/
+    display:flex;
+     /*Items can be side-by-side neatly*/
+    align-items:center;
+    justify-content:space-between;
+    /*Push items as far apart as possible*/
+    gap:3rem;
+    padding:4rem 2rem;
+}
+
+.hero-box{
+    background:var(--bg-card);
+    border:4px solid var(--primary);
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    padding:2rem;
+}
+
+.hero-text h1{
+    font-size:3.5rem;
+    margin-bottom:1rem;
+}
+
+.highlight{
+    color:var(--primary);
+}
+
+.subtitle{
+    color:var(--text-muted);
+    margin-bottom:1rem;
+    font-size:1.2rem;
+}
+
+.hero-text p{
+    max-width:500px;
+    margin-bottom:2rem;
+}
+
+/* =========================================
+   👑 AVATAR
+========================================= */
+.hero-avatar{
+    width:260px;
+    height:260px;
+    border-radius:20px;
+    overflow:hidden;
+    
+    border:5px solid var(--primary);
+    box-shadow:var(--shadow);
+    background:linear-gradient(
+        135deg,
+        var(--blue),
+        var(--primary)
+    );
+    display:flex;
+   
+    align-items:center;
+    justify-content:center;
+    
+    font-size:5rem;
+
+/* =========================================
+   👑 AVATAR
+========================================= */
+.hero-avatar{
+    width:260px;
+    height:260px;
+    border-radius:20px;
+    overflow:hidden;
+    /*Hides anything that goes outside of the screen horizontally*/
+    border:5px solid var(--primary);
+    box-shadow:var(--shadow);
+    background:linear-gradient(
+        135deg,
+        var(--blue),
+        var(--green),
+        var(--primary)
+    );
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    /*Push items as far apart as possible*/
+}
+
+/* Avatar Image */
+.hero-avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+}
+
+/* =========================================
+   🔘 BUTTONS
+========================================= */
+.btn{
+    display:inline-block;
+    padding:14px 28px;
+    background:var(--primary);
+    color:black;
+    font-weight:bold;
+    text-decoration:none;
+    border-radius:12px;
+    border-bottom:5px solid var(--primary-dark);
+    margin-right:1rem;
+    transition:0.15s;
+}
+
+.btn-blue{
+    background:var(--blue);
+    color:black;
+    border-bottom:5px solid var(--blue-dark);
+}
+
+.btn-green{
+    background:var(--green);
+    color:white;
+    border-bottom:5px solid var(--green-dark);
+}
+
+.btn:hover{
+    transform:translateY(3px);
+    border-bottom:2px solid var(--primary-dark);
+}
+.btn-blue:hover{
+    transform:translateY(3px);
+    border-bottom:2px solid var(--blue-dark);
+}
+.btn-green:hover{
+    transform:translateY(3px);
+    border-bottom:2px solid var(--green-dark);
+}
+
+/* =========================================
+   📋 SECTIONS
+========================================= */
+section{
+    max-width:1100px;
+    margin:auto;
+    padding:4rem 2rem;
+    scroll-margin-top:120px;
+}
+
+section h2{
+    font-size:2.5rem;
+    color:var(--primary);
+    margin-bottom:1rem;
+    text-align:center;
+    text-shadow:0 3px #8a6b00;
+}
+
+section h3{
+    font-size:1.5rem;
+    color:var(--green);
+    margin-bottom:1rem;
+    text-align:center;
+}
+/* =========================================
+   👤 ABOUT
+========================================= */
+.about-box{
+    background:var(--bg-card);
+    border:4px solid var(--green-dark);
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    padding:2rem;
+}
+
+.about-stats{
+    display:flex;
+    /*Items can be side-by-side neatly*/
+    justify-content:space-around;
+    /*Push items as far apart as possible*/
+    margin-top:2rem;
+    text-align:center;
+}
+
+.number{
+    font-size:2rem;
+    color:var(--primary);
+    font-weight:bold;
+}
+
+.contact-info{
+    font-weight:normal;
+    font-size:0.9rem;
+    opacity:0.85;
+}
+
+/* =========================================
+   🚀 EXPERIENCE
+========================================= */
+.experience-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+    /*minimum width = 250px, maximum width = 1fr(fraction of remaining space)*/
+    gap:2rem;
+}
+
+.experience-card{
+    background:var(--bg-card);
+    border:4px solid var(--green);
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    padding:1.5rem;
+}
+
+.experience-card h3{
+    color:var(--primary);
+    margin-bottom:1rem;
+}
+
+.tags{
+    display:flex;
+     /*Items can be side-by-side neatly*/
+    flex-wrap:wrap;
+    /*When flex items do not fit in one row, it is adjusted*/
+    gap:0.5rem;
+    margin:1rem 0;
+}
+
+.tag{
+    background:var(--blue);
+    padding:6px 12px;
+    border-radius:999px;
+    font-size:0.8rem;
+}
+
+/* =========================================
+   🚀 ACHIEVEMENTS
+========================================= */
+.achievements-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+    /*minimum width = 250px, maximum width = 1fr(fraction of remaining space)*/
+    gap:2rem;
+}
+
+.achievements-card{
+    background:var(--bg-card);
+    border:4px solid var(--green-dark);
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    padding:1.5rem;
+}
+
+.achievements-card h3{
+    color:var(--primary);
+    margin-bottom:1rem;
+}
+
+.tags{
+    display:flex;
+     /*Items can be side-by-side neatly*/
+    flex-wrap:wrap;
+    /*When flex items do not fit in one row, it is adjusted*/
+    gap:0.5rem;
+    margin:1rem 0;
+}
+
+.tag{
+    background:var(--blue);
+    padding:6px 12px;
+    border-radius:999px;
+    font-size:0.8rem;
+}
+
+/* =========================================
+   🛠️ SKILLS
+========================================= */
+.skills-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+    gap:2rem;
+}
+
+.skill-box{
+    background:var(--bg-card);
+    border:4px solid var(--green);
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    padding:1.5rem;
+}
+
+.skill-box h3{
+    color:var(--primary);
+    margin-bottom:1rem;
+}
+
+.skill-list{
+    display:flex;
+    /*Items can be side-by-side neatly*/
+    flex-wrap:wrap;
+    /*When flex items do not fit in one row, it is adjusted*/
+    gap:0.7rem;
+}
+
+.skill{
+    background:var(--blue);
+    padding:8px 14px;
+    border-radius:999px;
+}
+
+/* =========================================
+   📬 CONTACT
+========================================= */
+.contact-links{
+    display:flex;
+    /*Items can be side-by-side neatly*/
+    justify-content:center;
+    flex-wrap:wrap;
+    /*When flex items do not fit in one row, it is adjusted*/
+    gap:1rem;
+}
+
+.contact-link{
+    text-decoration:none;
+    color:white;
+    background:var(--blue);
+    padding:1rem 1.5rem;
+    border-radius:12px;
+    border-bottom:5px solid var(--blue-dark);
+    font-weight:bold;
+    transition:0.15s;
+}
+
+.contact-link:hover{
+    transform:translateY(2px);
+}
+
+/* =========================================
+   ✨ SCROLL REVEAL ANIMATION
+========================================= */
+
+.hidden{
+    opacity:0;
+
+    transform:
+    translateY(50px)
+    scale(0.9);
+
+    transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.show{
+    opacity:1;
+
+    transform:
+    translateY(0)
+    scale(1);
+}
+
+/* =========================================
+   📄 FOOTER
+========================================= */
+footer{
+    text-align:center;
+    padding:2rem;
+    background:#111827;
+    border-top:4px solid var(--primary);
+    margin-top:3rem;
+}
+
+/* =========================================
+   📱 MOBILE
+========================================= */
+@media(max-width:768px){
+
+    .hero{
+        flex-direction:column-reverse;
+        /*Stacks items from bottom to top instead of top to bottom*/
+        text-align:center;
+    }
+
+    .hero-text h1{
+        font-size:2.5rem;
+    }
+
+    .about-stats{
+        flex-direction:column;
+
+        gap:1rem;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav-links{
+        display:none;
+        /*Completely hide the links*/
+        position:absolute;
+        /*We can place the element freely with top,bottom etc*/
+        top:100%;
+        /*Place the object directly below its parent.*/
+        left:0;
+        /*Stretch from the left edge*/
+        right:0;
+        /*Stretch from the right edge*/
+        background:#111827;
+        flex-direction:column;
+        padding:1rem 2rem;
+        border-bottom:4px solid var(--primary);
+        gap:1rem;
+    }
+
+    .nav-links.active{
+        display:flex;
+        /*Items can be side-by-side neatly*/
+    }
+}
+
+</style>
+</head>
+
+<body>
+  
+<!-- NAVBAR -->
+<nav>
+    <div class="nav-inner">
+        <h1 href="#" class="logo">
+            👑 PORTFOLIO
+        </h1>
+        <button class="menu-toggle" onclick="toggleMenu()">
+            ☰
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contacts</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-text hero-box hidden">
+        <h1>
+            Welcome to
+            <span class="highlight">My Arena</span>
+        </h1>
+        <p class="subtitle">
+            ⚔️ Developer • Gamer
+        </p>
+        <p>
+            Hello👋!! I'm Ethan and this is my portofolio. 
+            Be free to explore this website. Here are a few starting points
+        </p>
+        <div>
+            <a href="#experience" class="btn">
+                EXPERIENCES
+            </a>
+            <a href="#achievements" class="btn btn-green">
+                ACHIEVEMENTS
+            </a>
+            <a href="#contact" class="btn btn-blue">
+                CONTACT
+            </a>
+        </div>
+    </div>
+    <div class="hero-avatar hidden">
+        <img src="https://raw.githubusercontent.com/Ethan-1702/Portofolio-Website/refs/heads/main/Photo.jpeg">
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2 class="hidden">PLAYER PROFILE</h2>
+    <div class="about-box hidden">
+        <p>
+            I am an organized person who is responsible and persistent. 
+            I also have good team work and I am ready to learn.
+        </p>
+        <br>
+        <p>
+            I like playing games that involve strategy, battle and puzzles.
+            Beside that, I like math and things that involve calculation.
+        </p>
+        <br>
+        <p>Education:</p>
+        <p>Primary School= Pelita Ⅱ</p>
+        <p>Junior High School= Sekolah Dian Harapan Daan Mogot</p>
+        <p>Senior High School= SMA Wardaya</p>
+        <div class="about-stats">
+
+            <div>
+                <div class="number" id="projectCount">
+                    6+
+                </div>
+
+                <div>Years Gaming</div>
+            </div>
+
+            <div>
+                <div class="number">
+                    1.5+
+                </div>
+
+                <div>Years Learning Coding</div>
+            </div>
+
+            <div>
+                <div class="number">
+                    1.5+
+                </div>
+
+                <div>Years Learning Music</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+    <h2 class="hidden">EXPERIENCE DECK</h2>
+
+    <div class="experience-grid">
+        <div class="experience-card hidden">
+            <h3>🤝Student Council</h3>
+            <li>
+                Assigned as the coordinator of the education division
+            </li>
+            <li>
+              Mentoring students grade 7 in science as part of one of the education division program’s called Student Assembly
+            </li>
+            <li>
+              Helped in school events such as Friendship Day and SDH Cup
+            </li>
+            <li>
+              Support other divisions in the Student Council
+            </li>
+            <div class="tags">
+                <span class="tag">Junior High School</span>
+                <span class="tag">2024</span>
+            </div>
+        </div>
+
+        <div class="experience-card hidden">
+            <h3>📚Wardaya Mengajar</h3>
+            <p>
+               Teach Mathematics and English to kids aged 4-6 who live around the school
+            </p>
+            <div class="tags">
+                <span class="tag">Senior High School</span>
+                <span class="tag">2025</span>
+            </div>
+        </div>
+
+        <div class="experience-card hidden">
+            <h3>🌐 DoFE Member</h3>
+            <p>
+                Global youth achievement program where participants need to complete four sections of activities
+            </p>
+            <div class="tags">
+                <span class="tag">The Duke of Edinburgh's Award</span>
+                <span class="tag">2025</span>
+            </div>
+        </div>
+        
+        <div class="experience-card hidden">
+            <h3>🎹 Keyboardist</h3>
+            <p>
+                Performed as a keyboardist in school charity event called Colors of Hope
+            </p>
+            <div class="tags">
+                <span class="tag">Senior High School</span>
+                <span class="tag">11 October 2025</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+    <h2 class="hidden">ACHIEVEMENT COLLECTION</h2>
+
+    <div class="achievements-grid">
+        <div class="achievements-card hidden">
+            <h3>🏫Top 10 Student in the Whole Grade</h3>
+            <p>
+               Rank 8 among 120 students
+            </p>
+            <div class="tags">
+                <span class="tag">Primary School</span>
+                <span class="tag">2022</span>
+            </div>
+        </div>
+
+        <div class="achievements-card hidden">
+            <h3>🎓Top 10 Student in the Whole Class</h3>
+            <p>
+               Among 30 students
+            </p>
+            <div class="tags">
+                <span class="tag">Junior High School</span>
+                <span class="tag">2025</span>
+            </div>
+        </div>
+
+        <div class="achievements-card hidden">
+            <h3>📐 Kumon</h3>
+            <p>
+                Accomplished Kumon Mathematics from October 2021-September 2025
+            </p>
+            <div class="tags">
+                <span class="tag">Senior High School</span>
+                <span class="tag">2025</span>
+            </div>
+        </div>
+        
+        <div class="achievements-card hidden">
+            <h3>🏆 Competitions</h3>
+            <li>
+               Gold Medal in English and Silver Medal in Mathematics for Senior High School, Islamic Senior High School, and Vocational High School students in Kompetisi Sains Siswa Nasional 2025 (KS2N) on September 16, 2025 Gold Medal in English
+            </li>
+            <li>
+              Mathematics for Senior High School, Islamic Senior High School, and Vocational High School students in Olimpiade Sains Pelajar Indonesia (OPINI) 2025 on September 23, 2025
+            </li>
+            <div class="tags">
+                <span class="tag">Senior High School</span>
+                <span class="tag">2025</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="skills">
+    <h2 class="hidden">
+        SKILL CARDS
+    </h2>
+
+    <div class="skills-grid">
+        <!-- HARD SKILLS -->
+        <div class="skill-box hidden">
+            <h3>💻 Coding & Math</h3>
+            <div class="skill-list">
+              <span class="skill">Math</span>
+              <span class="skill">HTML (Basic)</span>
+              <span class="skill">CSS (Basic)</span>
+              <span class="skill">JavaScript (Basic)</span>
+              <span class="skill">Roblox Studio (Still learning)</span>
+            </div>
+        </div>
+        <!-- DESIGN -->
+        <div class="skill-box hidden">
+            <h3>🎨 Music & Design</h3>
+            <div class="skill-list">
+                <span class="skill">
+                    Piano / Keyboard (Still learning)
+                </span>
+                <span class="skill">Canva</span>
+            </div>
+        </div>
+        
+        <!-- SOFT SKILLS -->
+        <div class="skill-box hidden">
+            <h3>🧠 Soft Skills</h3>
+            <div class="skill-list">
+                <span class="skill">Responsibility</span>
+                <span class="skill">Teamwork</span>
+                <span class="skill">Persistency</span>
+                <span class="skill">Consistency</span>
+                <span class="skill">Empathy</span>
+                <span class="skill">Hardworking</span>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- CONTACT -->
+<section id="contact">
+    <h2 class="hidden">PLAYER ID</h2>
+    
+    <div class="contact-links hidden">
+        <a href="mailto:ethanjoelliang@gmail.com" class="contact-link">
+            <div>
+              📧 Email
+            </div>
+            <div class="contact-info">
+              ethanjoelliang@gmail.com
+            </div>
+        </a>
+
+        <a href="https://wa.me/6285817095695" class="contact-link hidden">
+            <div>
+              📞 WhatsApp
+            </div>
+            <div class="contact-info">
+              6285817095695
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    © <span id="currentYear"></span>
+    Ethan Royale Portfolio
+
+</footer>
+
+<script>
+
+/* =========================================
+   ☰ MOBILE MENU
+========================================= */
+function toggleMenu(){
+
+    const navLinks =
+    document.getElementById("navLinks");
+
+    navLinks.classList.toggle("active");
+}
+
+/* CLOSE MENU WHEN LINK CLICKED */
+document.querySelectorAll(".nav-links a")
+.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        document
+        .getElementById("navLinks")
+        .classList
+        .remove("active");
+
+    });
+});
+
+/* =========================================
+   ✨ SMOOTH SCROLL
+========================================= */
+document
+.querySelectorAll('a[href^="#"]')
+.forEach(anchor => {
+
+    anchor.addEventListener("click", function(e){
+
+        e.preventDefault();
+
+        const target =
+        document.querySelector(
+            this.getAttribute("href")
+        );
+
+        if(target){
+
+            target.scrollIntoView({
+                behavior:"smooth",
+                block:"start"
+            });
+        }
+    });
+});
+
+/* =========================================
+   📅 AUTO YEAR
+========================================= */
+document.getElementById("currentYear")
+.textContent =
+new Date().getFullYear();
+
+/* =========================================
+   ✨ SCROLL REVEAL
+========================================= */
+
+const hiddenElements =
+document.querySelectorAll(".hidden");
+/*Finds all elements with the class hidden, so JS can control*/
+const observer =
+/*Watch and detect when certain things appear on screen*/
+new IntersectionObserver((entries)=>{
+/*Looping for multiple things*/
+    entries.forEach((entry)=>{
+      /*Checks whether a elements is visible on the screen or not*/
+        if(entry.isIntersecting){
+
+            entry.target
+            .classList
+            .add("show");
+        }
+        else{
+
+            entry.target
+            .classList
+            .remove("show");
+        }
+    });
+});
+
+hiddenElements.forEach((el)=>{
+    observer.observe(el);
+    /*Starts watching every hidden element*/
+});
+</script>
+
+</body>
+</html>
